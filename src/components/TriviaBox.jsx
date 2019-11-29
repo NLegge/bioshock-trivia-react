@@ -4,7 +4,6 @@ import { questions } from '../utils/triviaQuestions';
 export const TriviaBox = ({ onTriviaEnd, onCorrectClick, onIncorrectClick }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const handleClick = (isCorrect) => {
-    console.log(isCorrect);
     if (isCorrect) onCorrectClick();
     else onIncorrectClick();
     if (questions.length > (currentQuestionIndex + 1)) setCurrentQuestionIndex(currentQuestionIndex + 1);

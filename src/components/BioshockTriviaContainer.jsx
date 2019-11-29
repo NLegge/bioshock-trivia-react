@@ -32,7 +32,6 @@ const reducer = (state, action) => {
 
 export const BioshockTriviaContainer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
   const {
     boxView,
     correctCount,
