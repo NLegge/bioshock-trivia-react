@@ -5,7 +5,7 @@ export const TriviaBox = ({ onTriviaEnd, onCorrectClick, onIncorrectClick, onTim
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(20);
 
-  const updateInterval = () => {
+  const updateIndex = () => {
     if (questions.length > (currentQuestionIndex + 1)) setCurrentQuestionIndex(currentQuestionIndex + 1);
     else onTriviaEnd();
     setSecondsLeft(20);
@@ -14,7 +14,7 @@ export const TriviaBox = ({ onTriviaEnd, onCorrectClick, onIncorrectClick, onTim
   const handleClick = (isCorrect) => {
     if (isCorrect) onCorrectClick();
     else onIncorrectClick();
-    updateInterval();
+    updateIndex();
   };
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -25,7 +25,7 @@ export const TriviaBox = ({ onTriviaEnd, onCorrectClick, onIncorrectClick, onTim
       if (secondsLeft > 0) setSecondsLeft(secondsLeft - 1);
       else {
         onTimeout();
-        updateInterval();
+        updateIndex();
       }
     }, 1000);
     return () => clearInterval(interval);
