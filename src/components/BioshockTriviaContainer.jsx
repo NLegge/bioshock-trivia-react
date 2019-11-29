@@ -32,7 +32,6 @@ const reducer = (state, action) => {
 
 export const BioshockTriviaContainer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
   const {
     boxView,
     correctCount,
@@ -56,6 +55,7 @@ export const BioshockTriviaContainer = () => {
             onTriviaEnd={handleTriviaEnd}
             onCorrectClick={handleCorrectClick}
             onIncorrectClick={handleIncorrectClick}
+            onTimeout={handleTimeout}
           />
         );
         break;
@@ -77,7 +77,9 @@ export const BioshockTriviaContainer = () => {
     <div className="bioshock-trivia-container">
       <img src={Bioshock} alt="bioshock" />
       <h4>Trivia Game</h4>
-      {renderBox()}
+      <div className="game-box">
+        {renderBox()}
+      </div>
     </div>
   );
 };
